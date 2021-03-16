@@ -1,0 +1,15 @@
+Junior Front End Developer position
+
+Hello,
+
+Thank you for applying for the Junior Front End position. As part of your application, we would like for you to complete a small technical test to gauge your current ability.
+
+You should find attached a .psd file and a .jpg file. Using them as a reference, please develop a static web version of the design using HTML and CSS/SCSS. Any text in the design can be just plain text in your web version, there is no need to generate any data, we just want to see the design (or as close as possible) in a browser.
+
+We will be looking at:
+Markup (HTML)
+Styles (CSS/SCSS)
+Precision of UI (how similar is the result submitted to the design provided)
+
+Kind regards,
+
