@@ -5,11 +5,16 @@ $gradientBackground: linear-gradient(180deg, rgba(112,38,164,1) 0%, rgba(70,38,1
 $rootLight: rgb(255, 255, 255);	
 $rootDark: rgb(70, 38, 129);
 $shadowColor: rgba(0, 0, 0, 0.2);
+$padding: 2.813rem;
+$transition: 0.2s all ease;
 
 $h1: 1.96rem;
 $h2: 1.209rem;
 $h3: 1.026rem;
 $p: 0.568rem;
+
+// Screen breakpoint
+// 1295px 731px
 
 // Mixins
 @mixin flex ($direction: row, $justify: center, $align: center) {
@@ -24,6 +29,7 @@ $p: 0.568rem;
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 // HTML sytling
@@ -36,11 +42,38 @@ html {
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	@include flex();
 	color: $rootDark;
+	// Fallback background color
 	background: $rootDark;
 	background: $gradientBackground;
+}
+
+h1 {
+	font-size: 3rem;
+	font-weight: 900;
+}
+
+button {
+	outline: none;
+	border: none;
+	background: transparent;
+	color: $rootDark;
+	cursor: pointer;
+	transition: $transition;
+}
+
+button:hover {
+	transform: scale(1.1);
+}
+
+hr {
+	width: 100%;
+	color: $rootDark;
+	background: $rootDark;
+	outline: $rootDark;
+	border: 1px solid $rootDark;
 }
 
 // Card styling
@@ -56,6 +89,7 @@ body {
 .card__content {
 	min-width: 50%;
 	height: 70vh;
+	@include flex(column);
 }
 
 // Card content left styling
@@ -66,7 +100,7 @@ body {
 // Left content image styling
 .image--steve {
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	object-fit: cover;
 	border-radius: $borderRadius 0 0 $borderRadius;
 }
@@ -75,4 +109,123 @@ body {
 .card__content--right {
 	border-radius: 0 $borderRadius $borderRadius 0;
 	background: $rootLight;
+	padding: 1rem $padding;
+}
+
+// Card content container styling
+.card__content__container {
+	width: 100%;
+	padding: 0 0.625rem;
+	min-height: auto;
+}
+
+.card__content__container:last-child {
+	border-bottom: none;
+}
+
+.card__content__container--1 {
+	@include flex(column, space-around, flex-start);
+}
+
+// Content container top styling
+.container__text--top {
+	width: 100%;
+	@include flex(row, space-between);
+}
+
+// Dots container styling and hover styling
+.dots__container {
+	width: 1.563rem;
+	height: 100%;
+	@include flex(row, space-between);
+	cursor: pointer;
+
+	&:hover .dot {
+		transform: scale(1.4);
+	}
+}
+
+// Dot styling
+.dot {
+	background: $rootDark;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	transition: $transition;
+}
+
+.container__text--bottom {
+	width: 100%;
+}
+
+// Follow button styling
+.btn--follow {
+	@include flex();
+	color: $rootDark;
+}
+
+// Plus sign styling
+.plus-sign {
+	border: 3px solid $rootDark;
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: 50%;
+	@include flex();
+	font-weight: 800;
+}
+
+.follow-text {
+	margin-left: 5px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+// Card container 2 style
+.card__content__container--2 {
+	width: 100%;
+	@include flex(row, space-between);
+	padding: 0 1.25rem;
+}
+
+// Data element styling
+.data {
+	font-size: 1.6rem;
+}
+
+.data-label {
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	font-weight: 900;
+}
+
+// Card container 3 styling
+.card__content__container--3 {
+	width: 100%;
+	min-height: 50%;
+}
+
+// HR container styling
+.hr__container {
+	width: 100%;
+	padding: 0 0.625rem;
+	margin: 1rem 0;
+}
+
+// Title text styling for card content 3
+.title-text {
+	font-weight: 900;
+	text-transform: uppercase;
+	@include flex(row, flex-start)
+}
+
+.categories__container {
+	width: 100%;
+	height: 100%;	
+}
+
+.category {
+	border-bottom: 1px solid $rootDark;
+	height: 25%;
+	flex-grow: 1;
+	@include flex(row, flex-start);
 }
