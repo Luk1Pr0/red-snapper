@@ -95,6 +95,18 @@ hr {
 // Card content left styling
 .card__content--left {
 	border-radius: $borderRadius 0 0 $borderRadius;
+	position: relative;
+}
+
+// Back btn style
+.btn--back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: $rootLight;
+	font-size: 1rem;
+	margin: 1rem;
+	@include flex();
 }
 
 // Left content image styling
@@ -115,7 +127,7 @@ hr {
 // Card content container styling
 .card__content__container {
 	width: 100%;
-	padding: 0 0.625rem;
+	padding: 0 1rem;
 	min-height: auto;
 }
 
@@ -215,17 +227,77 @@ hr {
 .title-text {
 	font-weight: 900;
 	text-transform: uppercase;
-	@include flex(row, flex-start)
+	@include flex(row, flex-start);
+	margin-left: 5px;
 }
 
 .categories__container {
 	width: 100%;
-	height: 100%;	
+	height: 100%;
 }
 
 .category {
-	border-bottom: 1px solid $rootDark;
 	height: 25%;
 	flex-grow: 1;
-	@include flex(row, flex-start);
+	@include flex(row, space-between);
+	font-size: 2rem;
+	margin: 0 5px;	
+}
+
+.cat__divider {
+	width: 100%;
+	background: $rootDark;
+	height: 1px;
+}
+
+.arrow__container {
+	height: auto;
+	width: auto;
+}
+
+.arrow {
+	width: 1.1rem;
+	height: 1.1rem;
+	border-top: 5px solid $rootDark;
+	border-right: 5px solid $rootDark;
+	transform: rotate(45deg);
+}
+
+.arrow--left {
+	transform: rotate(225deg);
+	border-top: 2px solid $rootLight;
+	border-right: 2px solid $rootLight;
+}
+
+.arrow--right {
+	transform: rotate(45deg);
+	border-top: 2px solid $rootDark;
+	border-right: 2px solid $rootDark;
+}
+
+.rotate:hover .arrow--right {
+	animation: rotate-right 0.8s 1;
+}
+
+.rotate:hover .arrow--left {
+	animation: rotate-left 0.8s 1;
+}
+
+@keyframes rotate-right {
+	from {
+		transform: rotate(45deg);
+	}
+	to {
+		transform: rotate(415deg);
+	}
+}
+
+
+@keyframes rotate-left {
+	from {
+		transform: rotate(225deg);
+	}
+	to {
+		transform: rotate(585deg);
+	}
 }
