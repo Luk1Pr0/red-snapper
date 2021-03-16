@@ -13,8 +13,7 @@ $h2: 1.209rem;
 $h3: 1.026rem;
 $p: 0.568rem;
 
-// Screen breakpoint
-// 1295px 731px
+$smallScreen: 1100px;
 
 // Mixins
 @mixin flex ($direction: row, $justify: center, $align: center) {
@@ -53,6 +52,10 @@ body {
 h1 {
 	font-size: 3rem;
 	font-weight: 900;
+
+	@media screen and (max-width: $smallScreen) {
+		font-size: 2rem;
+	}
 }
 
 button {
@@ -83,6 +86,14 @@ hr {
 	border-radius: $borderRadius;
 	@include flex();
 	box-shadow: 0 0 60px 10px $shadowColor;
+		
+	@media screen and (max-width: $smallScreen) {
+		height: 90vh;
+		width: 90vw;
+		@include flex(column);
+		position: relative;
+		border-radius: none;
+	}
 }
 
 // Card content styling
@@ -90,12 +101,25 @@ hr {
 	min-width: 50%;
 	height: 70vh;
 	@include flex(column);
+
+	@media screen and (max-width: $smallScreen) {
+		width: 100%;
+		height: 70%;
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 // Card content left styling
 .card__content--left {
 	border-radius: $borderRadius 0 0 $borderRadius;
 	position: relative;
+
+	@media screen and (max-width: $smallScreen) {
+		position: absolute;
+		top: 0;
+		border-radius: none;
+	}
 }
 
 // Back btn style
@@ -107,6 +131,22 @@ hr {
 	font-size: 1rem;
 	margin: 1rem;
 	@include flex();
+	z-index: 5;
+
+	@media screen and (max-width: $smallScreen) {
+		margin: 3rem 1rem;
+	}
+}
+
+.img__container--steve {
+	width: 100%;
+	height: 100%;
+
+	@media screen and (max-width: $smallScreen) {
+		height: 50%;
+		position: absolute;
+		top: 0;
+	}
 }
 
 // Left content image styling
@@ -115,6 +155,10 @@ hr {
 	min-height: 100%;
 	object-fit: cover;
 	border-radius: $borderRadius 0 0 $borderRadius;
+
+	@media screen and (max-width: $smallScreen) {
+		border-radius: 0 0 0 0;
+	}
 }
 
 // Card content right styling
@@ -122,6 +166,12 @@ hr {
 	border-radius: 0 $borderRadius $borderRadius 0;
 	background: $rootLight;
 	padding: 1rem $padding;
+
+	@media screen and (max-width: $smallScreen) {
+		border-radius: $borderRadius $borderRadius 0 0;
+		padding: 1rem;
+		@include flex(column);
+	}
 }
 
 // Card content container styling
@@ -129,10 +179,6 @@ hr {
 	width: 100%;
 	padding: 0 1rem;
 	min-height: auto;
-}
-
-.card__content__container:last-child {
-	border-bottom: none;
 }
 
 .card__content__container--1 {
@@ -174,6 +220,10 @@ hr {
 .btn--follow {
 	@include flex();
 	color: $rootDark;
+
+	@media screen and (max-width: $smallScreen) {
+		margin-top: 10px;
+	}
 }
 
 // Plus sign styling
@@ -184,6 +234,13 @@ hr {
 	border-radius: 50%;
 	@include flex();
 	font-weight: 800;
+
+	@media screen and (max-width: $smallScreen) {
+		border: 1px solid $rootDark;
+		font-weight: 600;
+		height: 1rem;
+		width: 1rem;
+	}
 }
 
 .follow-text {
@@ -214,13 +271,17 @@ hr {
 .card__content__container--3 {
 	width: 100%;
 	min-height: 50%;
+
+	@media screen and (max-width: $smallScreen) {
+		min-height: 60%;
+	}
 }
 
 // HR container styling
 .hr__container {
 	width: 100%;
 	padding: 0 0.625rem;
-	margin: 1rem 0;
+	margin: 0.8rem 0;
 }
 
 // Title text styling for card content 3
@@ -237,19 +298,26 @@ hr {
 }
 
 .category {
-	height: 25%;
+	min-height: 25%;
 	flex-grow: 1;
 	@include flex(row, space-between);
 	font-size: 2rem;
-	margin: 0 5px;	
+	padding: 0 5px;
+
+	@media screen and (max-width: $smallScreen) {
+		height: 30%;
+		font-size: 1.8rem;
+	}
 }
 
+// Category divider
 .cat__divider {
 	width: 100%;
 	background: $rootDark;
 	height: 1px;
 }
 
+// Arrow container and arrow styling
 .arrow__container {
 	height: auto;
 	width: auto;
@@ -275,6 +343,7 @@ hr {
 	border-right: 2px solid $rootDark;
 }
 
+// Classses that animate specified elements
 .rotate:hover .arrow--right {
 	animation: rotate-right 0.8s 1;
 }
@@ -283,6 +352,7 @@ hr {
 	animation: rotate-left 0.8s 1;
 }
 
+// Animations
 @keyframes rotate-right {
 	from {
 		transform: rotate(45deg);
@@ -291,7 +361,6 @@ hr {
 		transform: rotate(415deg);
 	}
 }
-
 
 @keyframes rotate-left {
 	from {
