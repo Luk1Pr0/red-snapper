@@ -17,160 +17,151 @@
 
 <body>
 
-	<!-- Main content -->
+	<!-- Container for main content -->
 	<main>
 
-		<!-- Main card container -->
+		<!-- Card container -->
 		<div class="card">
 
 			<!-- Card image container -->
-			<div class="card__content card__content--left">
+			<div class="card-image__container">
 
-				<!-- Back button -->
-				<div class="back__btn__container">
+				<!-- Back button container -->
+				<div class="btn__container">
+					<button class="btn btn--back">
 
-					<!-- Button -->
-					<button class="btn--back rotate">
-
-						<!-- Arrow container -->
-						<div class="arrow__container">
-							<div class="arrow arrow--left"></div>
+						<!-- Icon container -->
+						<div class="arrow__container arrow__container--left">
+							<div class="arrow"></div>
 						</div>
 
-						<p>Back</p>
-
+						Back
 					</button>
 				</div>
 
+				<!-- Image container -->
 				<div class="img__container img__container--steve">
-					<img class='image--steve' src="./steve-image.png" alt="Steve jobs holding a remote">
+					<img src="./steve-image.png" alt="Steve jobs holding a remote" class='img--steve'>
 				</div>
+
 			</div>
 
 			<!-- Card content container -->
-			<div class="card__content card__content--right">
+			<div class="card-content__container">
 
-				<!-- Card content container 1 -->
-				<div class="card__content__container card__content__container--1">
+				<!-- Content container -->
+				<div class="content">
 
-					<!-- Top container  -->
-					<div class="container__text container__text--top">
+					<!-- Content section 1 -->
+					<div class="content-section content-section--1">
 
-						<h1>Steve Jobs</h1>
+						<!-- Top section 1 -->
+						<div class="section section--top">
 
-						<!-- More dots container -->
-						<div class="dots__container">
-							<div class="dot"></div>
-							<div class="dot"></div>
-							<div class="dot"></div>
+							<h1 class='name'>Steve Jobs</h1>
+
+							<!-- 3 dots more container -->
+							<div class="more__container">
+								<div class="dot"></div>
+								<div class="dot"></div>
+								<div class="dot"></div>
+							</div>
+
+						</div>
+
+						<!-- Bottom section 1 -->
+						<div class="section section--bottom">
+
+							<!-- Follow button -->
+							<button class="btn btn--follow">
+
+								<!-- Plus icon container -->
+								<div class="plus-icon__container">
+									<div class="circle">+</div>
+								</div>
+
+								Follow
+							</button>
+
 						</div>
 
 					</div>
 
-					<!-- Bottom container -->
-					<div class="container__text container__text--bottom">
+					<!-- Divider -->
+					<div class="divider">
+						<hr class='section-divider'>
+					</div>
 
-						<!-- Follow button -->
-						<button class="btn btn--follow">
+					<!-- Content section 2 -->
+					<div class="content-section content-section--2">
 
-							<!-- Plus sign container -->
-							<div class="plus-sign">
-								<!-- Circle container -->
-								<div class="circle">+</div>
-							</div>
+						<!-- Data container -->
+						<div class="data__container">
+							<p class='data'>313</p>
+							<p class='data-label'>Patents</p>
+						</div>
 
-							<p class='follow-text'>Follow</p>
-						</button>
+						<!-- Data container -->
+						<div class="data__container">
+							<p class='data'><span>1M</span> <span>50k</span></p>
+							<p class='data-label'>Followers</p>
+						</div>
+
+						<!-- Data container -->
+						<div class="data__container">
+							<p class='data'>361</p>
+							<p class='data-label'>Following</p>
+						</div>
 
 					</div>
 
-				</div>
-
-				<!-- HR divider -->
-				<div class="hr__container">
-					<hr>
-				</div>
-
-				<!-- Card content container 2 -->
-				<div class="card__content__container card__content__container--2">
-
-					<!-- Data container 1 -->
-					<div class="data__container data__container--1">
-						<h3 class='data'>313</h3>
-						<h4 class='data-label'>Patents</h4>
+					<!-- Divider -->
+					<div class="divider">
+						<hr class='section-divider'>
 					</div>
 
-					<!-- Data container 3 -->
-					<div class="data__container data__container--1">
-						<h3 class='data'>
-							<span>1M</span>
-							<span>50k</span>
-						</h3>
-						<h4 class='data-label'>Followers</h4>
-					</div>
+					<!-- Content section 3 -->
+					<div class="content-section content-section--3">
 
-					<!-- Data container 3 -->
-					<div class="data__container data__container--1">
-						<h3 class='data'>361</h3>
-						<h4 class='data-label'>Following</h4>
-					</div>
-				</div>
-
-				<!-- HR divider -->
-				<div class="hr__container">
-					<hr>
-				</div>
-
-
-				<!-- Card content container 3 -->
-				<div class="card__content__container card__content__container--3">
-
-					<!-- Title container for categories -->
-					<div class="title-text">
-						<p>Categories</p>
-					</div>
-
-					<!-- All categories container -->
-					<div class="categories__container">
+						<!-- Title container -->
+						<div class="title__container">
+							<h3>Categories</h3>
+						</div>
 
 						<!-- Category container -->
-						<div class="category rotate">
-							<p>Electronic devices</p>
+						<div class="category__container">
 
-							<!-- Arrow container -->
-							<div class="arrow__container">
-								<div class="arrow arrow--right"></div>
+							<!-- Category -->
+							<div class="category">
+								<p class='category-name'>Electronic devices</p>
+
+								<div class="arrow__container arrow__container--right">
+									<div class="arrow arrow-category"></div>
+								</div>
+
+							</div>
+
+							<!-- Category -->
+							<div class="category">
+								<p class='category-name'>Design</p>
+
+								<div class="arrow__container arrow__container--right">
+									<div class="arrow arrow-category"></div>
+								</div>
+
+							</div>
+
+							<!-- Category -->
+							<div class="category">
+								<p class='category-name'>Transportation</p>
+
+								<div class="arrow__container arrow__container--right">
+									<div class="arrow arrow-category"></div>
+								</div>
+
 							</div>
 
 						</div>
-
-						<div class="cat__divider"></div>
-
-						<!-- Category container -->
-						<div class="category rotate">
-							<p>Design</p>
-
-							<!-- Arrow container -->
-							<div class="arrow__container">
-								<div class="arrow arrow--right"></div>
-							</div>
-
-						</div>
-
-						<div class="cat__divider"></div>
-
-						<!-- Category container -->
-						<div class="category rotate">
-							<p>Transportation</p>
-
-							<!-- Arrow container -->
-							<div class="arrow__container">
-								<div class="arrow arrow--right"></div>
-							</div>
-
-						</div>
-
-						<div class="cat__divider"></div>
 
 					</div>
 
@@ -181,6 +172,7 @@
 		</div>
 
 	</main>
+
 </body>
 
 </html>

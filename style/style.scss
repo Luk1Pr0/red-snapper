@@ -1,19 +1,11 @@
 // Variables
-$fontSize: 16px;
-$borderRadius: 2.125rem;
-$gradientBackground: linear-gradient(180deg, rgba(112,38,164,1) 0%, rgba(70,38,129,1) 100%);;
-$rootLight: rgb(255, 255, 255);	
-$rootDark: rgb(70, 38, 129);
-$shadowColor: rgba(0, 0, 0, 0.2);
-$padding: 2.813rem;
+$rootLight: rgb(255, 255, 255);
+$primaryColor: rgb(70, 38, 129);
+$rootBackground: linear-gradient(180deg, rgba(112,38,164,1) 0%, rgba(70,38,129,1) 100%);
+
+$font: 'Source Sans Pro', sans-serif;
+$minWidth: 1029px;
 $transition: 0.2s all ease;
-
-$h1: 1.96rem;
-$h2: 1.209rem;
-$h3: 1.026rem;
-$p: 0.568rem;
-
-$smallScreen: 1100px;
 
 // Mixins
 @mixin flex ($direction: row, $justify: center, $align: center) {
@@ -23,12 +15,11 @@ $smallScreen: 1100px;
 	align-items: $align;
 }
 
-// Remove default styling from all elements
+// Default styling
 * {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	text-align: center;
-	box-sizing: border-box;
 }
 
 // HTML sytling
@@ -37,336 +28,270 @@ html {
 	font-size: 16px;
 }
 
-// Body styling
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: $font;
+	overflow-x: hidden;
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh;
 	@include flex();
-	color: $rootDark;
-	// Fallback background color
-	background: $rootDark;
-	background: $gradientBackground;
-}
+	background: $rootBackground;
 
-h1 {
-	font-size: 3rem;
-	font-weight: 900;
-
-	@media screen and (max-width: $smallScreen) {
-		font-size: 2rem;
+	@media screen and (min-width: $minWidth) {
+		@include flex(row, center, center);
 	}
 }
 
-button {
-	outline: none;
-	border: none;
+// Main card styling
+.card {
+	width: 90vw;
+	height: 90vh;
+	position: relative;
+
+	@media screen and (min-width: $minWidth) {
+		width: 40vw;
+	}
+}
+
+// Card image container styling
+.card-image__container {
+	width: 100%;
+	height: 40vh;
+	position: relative;
+}
+
+.btn__container {
+	width: auto;
+	height: auto;
+	position: absolute;
+}
+
+.btn {
 	background: transparent;
-	color: $rootDark;
+	border: none;
+	outline: none;
+	font-family: $font;
 	cursor: pointer;
 	transition: $transition;
 }
 
-button:hover {
+.btn:hover {
 	transform: scale(1.1);
 }
 
-hr {
-	width: 100%;
-	color: $rootDark;
-	background: $rootDark;
-	outline: $rootDark;
-	border: 1px solid $rootDark;
+.btn--back {
+	color: $rootLight;
+	@include flex();
+	margin: 2rem 1rem;
 }
 
-// Card styling
-.card {
-	width: 70vw;
-	min-height: 70vh;
-	border-radius: $borderRadius;
-	@include flex();
-	box-shadow: 0 0 60px 10px $shadowColor;
-		
-	@media screen and (max-width: $smallScreen) {
-		height: 90vh;
-		width: 90vw;
-		@include flex(column);
-		position: relative;
-		border-radius: none;
-	}
+.btn--back:hover .arrow {
+	animation: rotate 1s 1;
+}
+
+// Arrow icons styling
+.arrow__container {
+	width: auto;
+	height: auto;
+}
+
+.arrow__container--left {
+	transform: rotate(225deg);
+}
+
+.arrow__container--right {
+	transform: rotate(45deg);
+}
+
+.arrow {
+	width: 0.9rem;
+	height: 0.9rem;
+	border-top: 2px solid $rootLight;
+	border-right: 2px solid $rootLight;
+}
+
+.arrow-category {
+	border-top: 2px solid $primaryColor;
+	border-right: 2px solid $primaryColor;
+}
+
+.img__container {
+	width: 100%;
+	height: 100%;
+}
+
+.img--steve {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 // Card content styling
-.card__content {
-	min-width: 50%;
-	height: 70vh;
-	@include flex(column);
-
-	@media screen and (max-width: $smallScreen) {
-		width: 100%;
-		height: 70%;
-		position: absolute;
-		bottom: 0;
-	}
-}
-
-// Card content left styling
-.card__content--left {
-	border-radius: $borderRadius 0 0 $borderRadius;
-	position: relative;
-
-	@media screen and (max-width: $smallScreen) {
-		position: absolute;
-		top: 0;
-		border-radius: none;
-	}
-}
-
-// Back btn style
-.btn--back {
-	position: absolute;
-	top: 0;
-	left: 0;
-	color: $rootLight;
-	font-size: 1rem;
-	margin: 1rem;
-	@include flex();
-	z-index: 5;
-
-	@media screen and (max-width: $smallScreen) {
-		margin: 3rem 1rem;
-	}
-}
-
-.img__container--steve {
+.card-content__container {
 	width: 100%;
-	height: 100%;
-
-	@media screen and (max-width: $smallScreen) {
-		height: 50%;
-		position: absolute;
-		top: 0;
-	}
-}
-
-// Left content image styling
-.image--steve {
-	width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	border-radius: $borderRadius 0 0 $borderRadius;
-
-	@media screen and (max-width: $smallScreen) {
-		border-radius: 0 0 0 0;
-	}
-}
-
-// Card content right styling
-.card__content--right {
-	border-radius: 0 $borderRadius $borderRadius 0;
+	min-height: 50vh;
 	background: $rootLight;
-	padding: 1rem $padding;
+	position: absolute;
+	bottom: 0;
+	border-radius: 1rem 1rem 0 0;
+	padding: 1rem 1.5rem 0.5rem 1.5rem;
+	@include flex(column, center, center);
+}
 
-	@media screen and (max-width: $smallScreen) {
-		border-radius: $borderRadius $borderRadius 0 0;
-		padding: 1rem;
-		@include flex(column);
+.content {
+	width: 100%;
+	min-height: 50vh;
+
+	@media screen and (min-width: $minWidth) {
+		@include flex(column, space-around, space-between);
 	}
 }
 
-// Card content container styling
-.card__content__container {
-	width: 100%;
-	padding: 0 1rem;
-	min-height: auto;
+.content-section {
+	padding: 0 0.5rem;
 }
 
-.card__content__container--1 {
-	@include flex(column, space-around, flex-start);
+// Content section 1 styling
+.content-section--1 {
+	height: auto;
+
+	@media screen and (min-width: $minWidth) {
+		height: 25%;
+	}
 }
 
-// Content container top styling
-.container__text--top {
-	width: 100%;
+.section--top {
 	@include flex(row, space-between);
 }
 
-// Dots container styling and hover styling
-.dots__container {
-	width: 1.563rem;
-	height: 100%;
-	@include flex(row, space-between);
+.name {
+	color: $primaryColor;
+	font-weight: 900;
+	font-size: 2.5rem;
+}
+
+.more__container {
+	width: 25px;
+	height: auto;
+	@include flex(row, space-around, center);
 	cursor: pointer;
-
-	&:hover .dot {
-		transform: scale(1.4);
-	}
 }
 
-// Dot styling
+.more__container:hover .dot {
+	transform: scale(1.1);
+}
+
 .dot {
-	background: $rootDark;
-	width: 5px;
-	height: 5px;
-	border-radius: 50%;
 	transition: $transition;
-}
-
-.container__text--bottom {
-	width: 100%;
+	width: 6px;
+	height: 6px;
+	background: $primaryColor;
+	border-radius: 50%;
 }
 
 // Follow button styling
 .btn--follow {
 	@include flex();
-	color: $rootDark;
-
-	@media screen and (max-width: $smallScreen) {
-		margin-top: 10px;
-	}
+	color: $primaryColor;
+	text-transform: uppercase;
+	font-weight: 900;
 }
 
-// Plus sign styling
-.plus-sign {
-	border: 3px solid $rootDark;
-	width: 1.1rem;
-	height: 1.1rem;
+.plus-icon__container {
+	margin-right: 5px;
+}
+
+.circle {
+	width: 1rem;
+	height: 1rem;
+	border: 2px solid $primaryColor;
 	border-radius: 50%;
 	@include flex();
-	font-weight: 800;
+	color: $primaryColor;
+	font-size: 1.2rem;
+}
 
-	@media screen and (max-width: $smallScreen) {
-		border: 1px solid $rootDark;
-		font-weight: 600;
-		height: 1rem;
-		width: 1rem;
+// Section divider
+.section-divider {
+	border: 1px solid $primaryColor;
+	color: $primaryColor;
+	background: $primaryColor;
+	margin: 0.7rem 0;
+}
+
+// Content section 2 styling
+.content-section--2 {
+	@include flex(row, space-between, center);
+	padding: 0 1rem;
+	height: auto;
+
+	@media screen and (min-width: $minWidth) {
+		height: 25%;
 	}
 }
 
-.follow-text {
-	margin-left: 5px;
-	text-transform: uppercase;
-	font-weight: 700;
+.data__container {
+	text-align: center;
+	color: $primaryColor;
 }
 
-// Card container 2 style
-.card__content__container--2 {
-	width: 100%;
-	@include flex(row, space-between);
-	padding: 0 1.25rem;
-}
-
-// Data element styling
+// Data style
 .data {
-	font-size: 1.6rem;
+	font-size: 1.2rem;
+	font-weight: 900;
 }
 
 .data-label {
-	text-transform: uppercase;
-	font-size: 0.8rem;
 	font-weight: 900;
+	font-size: 0.8rem;
 }
 
-// Card container 3 styling
-.card__content__container--3 {
+// Content section 3 styling
+.content-section--3 {
 	width: 100%;
-	min-height: 50%;
+	min-height: 30vh;
 
-	@media screen and (max-width: $smallScreen) {
-		min-height: 60%;
+	@media screen and (min-width: $minWidth) {
+		height: 50%;
 	}
 }
 
-// HR container styling
-.hr__container {
-	width: 100%;
-	padding: 0 0.625rem;
-	margin: 0.8rem 0;
-}
-
-// Title text styling for card content 3
-.title-text {
-	font-weight: 900;
+.title__container {
 	text-transform: uppercase;
-	@include flex(row, flex-start);
-	margin-left: 5px;
+	font-size: 0.6rem;
+	font-weight: 900;
+	color: $primaryColor;
+	padding-left: 0.5rem;
 }
 
-.categories__container {
+.category__container {
 	width: 100%;
-	height: 100%;
+	height: auto;
+	color: $primaryColor;
 }
 
 .category {
-	min-height: 25%;
-	flex-grow: 1;
-	@include flex(row, space-between);
-	font-size: 2rem;
-	padding: 0 5px;
-
-	@media screen and (max-width: $smallScreen) {
-		height: 30%;
-		font-size: 1.8rem;
-	}
-}
-
-// Category divider
-.cat__divider {
 	width: 100%;
-	background: $rootDark;
-	height: 1px;
+	font-size: 1.5rem;
+	@include flex(row, space-between);
+	border-bottom: 1px solid $primaryColor;
+	padding: 0 0.5rem;
+	cursor: pointer;
 }
 
-// Arrow container and arrow styling
-.arrow__container {
-	height: auto;
-	width: auto;
+.category:hover .arrow {
+	animation: rotate 1s 1;
 }
 
-.arrow {
-	width: 1.1rem;
-	height: 1.1rem;
-	border-top: 5px solid $rootDark;
-	border-right: 5px solid $rootDark;
-	transform: rotate(45deg);
-}
-
-.arrow--left {
-	transform: rotate(225deg);
-	border-top: 2px solid $rootLight;
-	border-right: 2px solid $rootLight;
-}
-
-.arrow--right {
-	transform: rotate(45deg);
-	border-top: 2px solid $rootDark;
-	border-right: 2px solid $rootDark;
-}
-
-// Classses that animate specified elements
-.rotate:hover .arrow--right {
-	animation: rotate-right 0.8s 1;
-}
-
-.rotate:hover .arrow--left {
-	animation: rotate-left 0.8s 1;
+.category-name {
+	padding: 1rem 0;
 }
 
 // Animations
-@keyframes rotate-right {
+@keyframes rotate {
 	from {
-		transform: rotate(45deg);
+		transform: rotate(0deg);
 	}
 	to {
-		transform: rotate(415deg);
-	}
-}
-
-@keyframes rotate-left {
-	from {
-		transform: rotate(225deg);
-	}
-	to {
-		transform: rotate(585deg);
+		transform: rotate(360deg);
 	}
 }
